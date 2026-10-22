@@ -21,8 +21,6 @@ parts:
     stage-packages:
       - python3.12-minimal
       - python3-venv
-    python-packages:
-      - launchpadlib
 
 apps:
   lpshipit:
@@ -37,4 +35,3 @@ apps:
     environment:
       PYTHONPATH: $SNAP/lib/python3.12/site-packages:$PYTHONPATH
     command: bin/lpmptox
-

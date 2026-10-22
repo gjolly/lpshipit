@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=84.2.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lpshipit"
+version = "0.5.3"
+description = "Helpful utility for merging launchpad MPs (only works for git repos)"
+readme = "README.md"
+requires-python = ">=3.10"
+license-files = ["LICENSE"]
+authors = [{ name = "philroche", email = "phil.roche@canonical.com" }]
+dependencies = [
+    "click>=8.5.0",
+    "GitPython>=3.2.1",
+    "launchpadlib>=2.3.0",
+    "urwid>=4.2.5",
+]
+
+[project.scripts]
+lpshipit = "lpshipit:lpshipit"
+lpmpmessage = "lpmpmessage:lpmpmessage"
+lpmptox = "lpmptox:lpmptox"
+
+[project.urls]
+Repository = "https://github.com/philroche/lpshipit"
+
+[dependency-groups]
+dev = ["bump-my-version>=1.6.3"]
+
+[tool.setuptools]
+py-modules = ["lpshipit", "lpmpmessage", "lpmptox", "lxc"]
+
+[tool.bumpversion]
+current_version = "0.5.3"
+commit = true
+tag = true
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+search = 'version = "{current_version}"'
+replace = 'version = "{new_version}"'
+
+[[tool.bumpversion.files]]
+filename = "snap/snapcraft.yaml"
+search = "version: '{current_version}'"
+replace = "version: '{new_version}'"
+
+[[tool.bumpversion.files]]
+filename = "uv.lock"
+search = "name = \"lpshipit\"\nversion = \"{current_version}\""
+replace = "name = \"lpshipit\"\nversion = \"{new_version}\""

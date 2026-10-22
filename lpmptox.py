@@ -2,22 +2,7 @@
 """
 lpmptox script will run tox on changes in a selected MP
 
-lpmptox depends on ``launchpadlib``, which isn't
-necessarily up-to-date in PyPI, so we install it from the archive::
-
-`sudo apt-get install python-launchpadlib` OR
-
-`sudo apt-get install python3-launchpadlib` OR
-
-As we're using ``launchpadlib`` from the archive (which is therefore
-installed in the system), you'll need to create your virtualenvs
-with the ``--system-site-packages`` option.
-
-Activate your virtualenv and install the requirements::
-
-`pip install -r requirements.txt`
-
-
+Install with ``uv tool install lpshipit``. See README.md for details.
 """
 import click
 import git
